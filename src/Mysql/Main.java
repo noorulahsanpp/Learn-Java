@@ -19,11 +19,11 @@ import java.util.logging.Logger;
 public class Main {
     
     private static Scanner scanner = new Scanner(System.in);
-    DBConnection dBConnection = new DBConnection();
-    Queries queries = new Queries();
+    
     
     public static void main(String args[]){
-        
+        DBConnection dBConnection = new DBConnection();
+    Queries queries = new Queries();
         
         boolean quit = false;
         int choice = 0;
@@ -39,7 +39,7 @@ public class Main {
                     printInstructions();
                     break;
                 case 1:
-                    viewAllItems();
+                    Queries.viewAllItems();
                     break;
                 case 2:
                     addItem();
@@ -54,8 +54,6 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
-                    processArrayList();
-                case 7:
                     quit = true;
                     break;
             }
@@ -73,39 +71,39 @@ public class Main {
         System.out.println("\t 6 - To quit the application.");
     }
 
-    public void addItem() {
-        System.out.print("Please enter the grocery item: ");
+    public static void addItem() {
+        System.out.println("Please enter the grocery item: ");
         System.out.println("Name : ");
         String name = scanner.nextLine();
                System.out.println("Price : ");
         double price = scanner.nextDouble();
                 System.out.println("Quantity : ");
         int quantity = scanner.nextInt();
-        queries.insertItem(name, price, quantity);
+        Queries.insertItem(name, price, quantity);
     }
 
-//    public static void modifyItem() {
-//        System.out.print("Current item name: ");
-//        String itemNo = scanner.nextLine();
-//        System.out.print("Enter new item: ");
-//        String newItem = scanner.nextLine();
-//        groceryList.modifyGroceryItem(itemNo, newItem);
-//    }
+    public static void modifyItem() {
+        System.out.print("Current item name: ");
+        String itemNo = scanner.nextLine();
+        System.out.print("Enter new item: ");
+        String newItem = scanner.nextLine();
+        Queries.updateItem(newItem, 0, 0);
+    }
 
-    public void removeItem() {
+    public static void removeItem() {
         System.out.print("Enter item name: ");
         String itemName = scanner.nextLine();
-        queries.removeItem(itemName);
+        Queries.removeItem(itemName);
     }
 
-    public static void viewAllItems() {
-        queries.viewAllItems();
+    public void viewAllItems() {
+        Queries.viewAllItems();
         
     }
-    public void viewAnItem() {
+    public static void searchForItem() {
         System.out.print("Enter item name: ");
         String itemName = scanner.nextLine();
-        ResultSet resultSet = queries.viewAnItem(itemName);
+        ResultSet resultSet = Queries.viewAnItem(itemName);
         try {
             while(resultSet.next()){
                 System.out.println(resultSet.getString("name"));
