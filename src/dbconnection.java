@@ -65,7 +65,8 @@ public class dbconnection {
     
     public static void main(String args[]){
         dbconnection db = new dbconnection();
-        db.insert();
+        db.test();
+//        db.insert();
     }
     
     

@@ -8,19 +8,57 @@
  *
  * @author Noorul
  */
-public class test {
-    public static void main(String[] args){
-        int[] intArray = new int[7];
-        intArray[0] = 20;
-        intArray[1] = 35;
-        intArray[2] = -15;
-        intArray[3] = 7;
-        intArray[4]= 55;
-        intArray[5] = 1;
-        intArray[6] = -22;
-        for(int i=0;i<intArray.length;i++){
-          System.out.println(intArray[i]);  
-        }
-//        ("Hello World ");
+
+import java.util.*;
+public class test extends test1 implements sam{
+   
+    void kk(){
+        System.out.print("Bye");
     }
+    
+   public void as(){
+       
+   }
+   
+   public static int qwe(){
+       return 10;
+   }
+    public static void main(String[] args){
+        
+        List list = new ArrayList();
+        list.add("Hello");
+        list.add(5);
+        
+        String qw = "ahsan1";
+        qwe();
+        
+        String abc = (qw=="ahsan") ? "no" : "yes";
+        System.out.println(abc);
+        
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("s");
+        arrayList.add(5);
+        
+        System.out.println(list+"\n"+arrayList);
+        
+        test1 tt = new test();
+        tt.run();
+//        tt.kk();00
+    }
+}
+
+abstract class test1{
+    final void run(){
+        int a = 4_154;
+        String b = a+"";
+        int [] t = {1,2,3};
+        System.out.println(t[0]);
+    }
+    
+    abstract void kk();
+}
+
+interface sam{
+    void as();
+    
 }
